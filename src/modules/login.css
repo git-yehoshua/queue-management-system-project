@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+   
+}
+/* nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: hsla(212, 20%, 62%, 0.377);
+    padding: 10px;
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-right: 20px;
+  }
+  
+  .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .nav-buttons {
+    display: flex;
+  }
+  
+  .login-button,
+  .signup-button {
+    background-color: #0fa1f5;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .login-button:hover,
+  .signup-button:hover {
+    background-color: #ccc;
+  } */
+  
+.container {
+    background-color: aliceblue opacity rgba(0, 0, 0, 0.10);
+    border-style: solid;
+    border-width: 1px;
+    padding: 20px;
+    margin: 50px auto;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+.container:hover {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    border: 1px solid #080808;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: lighter;
+    background-color: transparent;
+}
+input[type="text"]:hover {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+input[type="password"]:hover {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+button[type="submit"] {
+    background-color: #0fa1f5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.signup-link {
+    display: block;
+    margin-top: 20px;
+    font-size: 14px;
+}
