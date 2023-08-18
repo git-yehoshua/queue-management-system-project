@@ -1,10 +1,28 @@
 body {
     font-family: Arial, sans-serif;
     background-repeat: no-repeat;
-    background-size: cover;
-    
-   
+    background-size: cover; 
 }
+
+a {
+  text-align: center;
+}
+
+.toggle-button-container {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  padding: 10px;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background-color: #0fa1f5;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
 /* nav {
     display: flex;
     justify-content: space-between;
@@ -50,6 +68,7 @@ body {
     background-color: #ccc;
   } */
   
+
 .container {
     background-color: aliceblue opacity rgba(0, 0, 0, 0.10);
     border-style: solid;
@@ -59,14 +78,15 @@ body {
     max-width: 400px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
+    /* text-align: center; */
+    text-align: left;
 }
 .container:hover {
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
 }
 
 h1 {
-    text-align: center;
+    /* text-align: center; */
     margin-bottom: 20px;
 }
 
@@ -74,6 +94,7 @@ label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    font-size: 14px;
 }
 
 input[type="text"],
@@ -81,12 +102,13 @@ input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
-    border-radius: 15px;
+    border-radius: 6px;
     border: 1px solid #080808;
+    border-top: #fff;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: lighter;
-    background-color: transparent;
+    background-color: #eeeff1;
 }
 input[type="text"]:hover {
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
@@ -101,17 +123,19 @@ button[type="submit"] {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
+    width: 100%;
     cursor: pointer;
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 15px;
+    margin-bottom: 5px;
 }
 
 button[type="submit"]:hover {
     background-color: #45a049;
 }
 
-.signup-link {
+.signup-link,
+.login-link {
     display: block;
     margin-top: 20px;
-    font-size: 14px;
+    font-size: 13px;
 }
