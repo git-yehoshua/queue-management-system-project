@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './styles/teller.css';
 import DropdownMenu from './hooks/DropdownMenu';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { faCircleArrowRight,
+         faBullhorn } from '@fortawesome/free-solid-svg-icons';
 
 const synth = window.speechSynthesis;
 
 function Teller() {
   const [servingNumber, setServingNumber] = useState(0);
   const [voices, setVoices] = useState([]);
+  const [newServingNumber, setNewServingNumber] = useState(0);
 
   useEffect(() => {
     // Get the list of available voices
@@ -15,11 +19,16 @@ function Teller() {
   }, []);
 
   const handleNextClick = () => {
-    const newServingNumber = servingNumber + 1;
-    setServingNumber(newServingNumber);
+    const updatedServingNumber = servingNumber + 1;
+    setServingNumber(updatedServingNumber);
+    setNewServingNumber(updatedServingNumber);
 
-    speak(`Now serving Customer number: ${formatServingNumber(newServingNumber)}`);
+    speak(`Now serving Customer number: ${formatServingNumber(updatedServingNumber)}`);
   };
+
+  const handleNotifyClick = () => {
+  speak(`Calling customer number: ${formatServingNumber(newServingNumber)}. Please proceed to Window 1.`);
+  }
 
   const speak = (text) => {
     if (synth && synth.speaking) {
@@ -45,6 +54,11 @@ function Teller() {
     <div>
       <div className='main-wrapper'>
         <DropdownMenu/>
+        <div className='sub-wrapper'>
+        <div className='control-side'>
+          <div>
+          <button>Start Live Monitor</button>
+        </div>
         <div className='now-serving-wrap'>
           <div className='serving-title-wrap'>
             <h3 className='now-serving-text'>Now Serving</h3>
@@ -55,13 +69,18 @@ function Teller() {
         </div>
 
         <div>
-          <button className='next-button' onClick={handleNextClick}>Next</button>
+          <button className='next-button' onClick={handleNextClick}>
+          <FontAwesomeIcon icon={faCircleArrowRight} /> Next
+          </button>
         </div>
         <div>
-          <button className='notify-button'>Notify</button>
+          <button className='notify-button' onClick={handleNotifyClick}>
+          <FontAwesomeIcon icon={faBullhorn} />Notify</button>
         </div>
-        <div>
-          <button>Start Live Monitor</button>
+        </div>
+        <div className='preview-side'>
+          <h1>PREVIEW</h1>
+        </div>
         </div>
       </div>
     </div>

@@ -4,19 +4,23 @@
   text-decoration: none;
 }
 
+body {
+  background-color: whitesmoke;
+}
 .side-container {
   display: flex;
 }
 
 main {
   width: 100%;
-  padding: 20px;
+  padding: 10px;
 }
 
 .sidebar {
   position: sticky;
   top: 0;
   background-color: #202123;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
   border-right: 1px solid #000000 ;
   height: 100vh;
   width: 200px;
@@ -29,9 +33,9 @@ main {
   position: absolute;
   bottom: 0;
   left: 0;
+  box-shadow: 3px -3px 5px rgba(255, 255, 255, 0.15);
+  border-top: 1px solid gray;
   width: 100%;
-  padding-top: 5px;
-  border-top: 1px solid whitesmoke;
 }
 
 .bars {
@@ -41,27 +45,51 @@ main {
   border: 1px solid whitesmoke;
   border-radius: 5px;
   padding: 5px;
-  margin-left: 5px;
+  cursor: pointer;
+}
+
+.top-section {
+  border-radius: 5px;
 }
 
 .link {
   display: flex;
-  padding: 5px 15px;
-  gap: 15px;
+  padding: 5px 12px;
+  gap: 10px;
   transition: all 0.5s;
+  border: 1px solid #202123;
+  color: whitesmoke;
+}
+.bottom-link {
+  display: flex;
+  padding: 5px 12px; /*WORKING ON THE PADDING TOP OF THIS*/
+  gap: 10px;
+  transition: all 0.5s;
+  border: 1px solid #202123;
   color: whitesmoke;
 }
 
-.link:hover {
-  transition: all 0.5s;
-  background-color: #343541
+
+.opened-sidebar .link:hover {
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  background-color: #343541;
 }
 
-.active{
-  background-color: #343541
+.opened-sidebar .active{
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  background-color: #343541;
 }
-.icon, .link_text{
-  font-size: 20px;
+.icon {
+  display: flex;
+  color: whitesmoke;
+  font-size: 25px;
+}
+.link-text{
+  display: flex;
+  align-items: center;
+  font-size: 15px;
   color: whitesmoke;
 }
 
@@ -71,6 +99,20 @@ main {
   padding-right: 10px;
 }
 
+.navigation {
+  margin-top: 5px;
+  padding-left: 0;
+}
+
+.nav-text {
+  display: flex;
+  color: rgb(209, 209, 209);
+  padding: 7px;
+  font-size: 14px;
+}
+.bars-wrap {
+  padding-left: 6px;
+}
 .title-wrap {
   width: 100px;
   height: 60px;

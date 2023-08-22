@@ -9,7 +9,7 @@ import {
 } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 
-const Sidebar = ({ children }) => {
+  const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -44,18 +44,26 @@ const Sidebar = ({ children }) => {
     },
   ];
 
+  const handleLinkClick = () => {
+    if (!isOpen) {
+      toggle();
+    } 
+  };
+
   return (
-    <div className='side-container'>
-      <div style={{ width: isOpen ? '200px' : '50px' }} className='sidebar'>
+    <div className={`side-container ${isOpen ? 'opened-sidebar' : ''}`}>
+      <div style={{ width: isOpen ? '200px' : '50px' }} className={`sidebar ${isOpen ? 'opened-sidebar' : ''}`} onClick={handleLinkClick}>
         <div className='top-section'>
           <div className='title-wrap'>
             {/* <h1 style={{ display: isOpen ? 'block' : 'none' }} className='title'>
-              QUEUE-ZELCO
+              QUEUE-ZELCOs
             </h1> */}
             {/* or replace with logo */}
           </div>
-          <div style={{ marginLeft: isOpen ? '50px' : '0px' }} className='bars'>
+          <div className='bars-wrap'>
+            <div style={{ marginLeft: isOpen ? '50px' : '0px' }} className='bars'>
             <FaBars onClick={toggle} />
+          </div>
           </div>
         </div>
         <div className='navigation'>
@@ -66,9 +74,10 @@ const Sidebar = ({ children }) => {
                 key={index}
                 className='link'
                 activeClassName='active'
+                onClick={handleLinkClick}
               >
                 <div className='icon'>{item.icon}</div>
-                <div style={{ display: isOpen ? 'block' : 'none' }} className='link-text'>
+                <div style={{ display: isOpen ? 'flex' : 'none' }} className='link-text'>
                   {item.name}
                 </div>
               </NavLink>
@@ -79,11 +88,12 @@ const Sidebar = ({ children }) => {
               <NavLink
                 to={item.path}
                 key={index}
-                className='link'
+                className='bottom-link'
                 activeClassName='active'
+                onClick={handleLinkClick}
               >
                 <div className='icon'>{item.icon}</div>
-                <div style={{ display: isOpen ? 'block' : 'none' }} className='link-text'>
+                <div style={{ display: isOpen ? 'flex' : 'none' }} className='link-text'>
                   {item.name}
                 </div>
               </NavLink>

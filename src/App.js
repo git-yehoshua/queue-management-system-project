@@ -6,6 +6,7 @@ import Sidebar from './modules/sidebar';
 import Teller from './modules/teller';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Admin from './modules/admin';
+import Live from './modules/live';
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
           </Routes>
         </Sidebar>
       </Router>
+
+      {/* <Live/> */}
     </div>
   );
 }
