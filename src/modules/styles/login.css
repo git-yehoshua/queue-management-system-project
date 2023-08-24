@@ -22,51 +22,6 @@ a {
   border: 1px solid black;
   cursor: pointer;
 }
-
-/* nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: hsla(212, 20%, 62%, 0.377);
-    padding: 10px;
-    color: #fff;
-    font-size: 18px;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-  }
-  
-  .nav-links li {
-    margin-right: 20px;
-  }
-  
-  .nav-links li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .nav-buttons {
-    display: flex;
-  }
-  
-  .login-button,
-  .signup-button {
-    background-color: #0fa1f5;
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin-left: 10px;
-    cursor: pointer;
-    color: white;
-  }
-  
-  .login-button:hover,
-  .signup-button:hover {
-    background-color: #ccc;
-  } */
   
 
 .container {

@@ -1,3 +1,4 @@
+import socketIOClient from 'socket.io-client';
 import React, { useState, useEffect } from 'react';
 import './styles/teller.css';
 import DropdownMenu from './hooks/DropdownMenu';
@@ -11,12 +12,18 @@ function Teller() {
   const [servingNumber, setServingNumber] = useState(0);
   const [voices, setVoices] = useState([]);
   const [newServingNumber, setNewServingNumber] = useState(0);
+  const socket = socketIOClient('http://localhost:5000');
 
   useEffect(() => {
     // Get the list of available voices
     const voiceList = synth.getVoices();
     setVoices(voiceList);
+
+    return () => {
+      socket.disconnect();
+    };
   }, []);
+
 
   const handleNextClick = () => {
     const updatedServingNumber = servingNumber + 1;
@@ -24,11 +31,20 @@ function Teller() {
     setNewServingNumber(updatedServingNumber);
 
     speak(`Now serving Customer number: ${formatServingNumber(updatedServingNumber)}`);
+
+    socket.emit('newServingNumber', updatedServingNumber);
   };
 
   const handleNotifyClick = () => {
   speak(`Calling customer number: ${formatServingNumber(newServingNumber)}. Please proceed to Window 1.`);
   }
+
+  const handleStartLiveMonitorClick = () => {
+    const rootElement = document.documentElement;
+    if(rootElement.requestFullscreen) {
+      rootElement.requestFullscreen();
+    }
+  };
 
   const speak = (text) => {
     if (synth && synth.speaking) {
@@ -57,17 +73,16 @@ function Teller() {
         <div className='sub-wrapper'>
         <div className='control-side'>
           <div>
-          <button>Start Live Monitor</button>
+          <button onClick={handleStartLiveMonitorClick}>Start Live Monitor</button>
         </div>
-        <div className='now-serving-wrap'>
-          <div className='serving-title-wrap'>
-            <h3 className='now-serving-text'>Now Serving</h3>
+          <div className='now-serving-wrap'>
+            <div className='serving-title-wrap'>
+              <h3 className='now-serving-text'>Now Serving</h3>
+            </div>
+            <div className='serving-number-wrap'>
+              <h1 className='serving-number'> {formatServingNumber(servingNumber)}</h1>
+            </div>
           </div>
-          <div className='serving-number-wrap'>
-            <h1 className='serving-number'> {formatServingNumber(servingNumber)}</h1>
-          </div>
-        </div>
-
         <div>
           <button className='next-button' onClick={handleNextClick}>
           <FontAwesomeIcon icon={faCircleArrowRight} /> Next

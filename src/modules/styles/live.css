@@ -1,19 +1,63 @@
+h1 {
+    margin: 0;
+    padding: 0;
+}
 .live-main-wrap {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 70vh 1fr;
+    padding: 10px;
 }
 
 .service-side-wrap,
 .video-side-wrap {
-    min-height: 99vh;
+    display: block;
+    min-height: 87vh;
 }
 
 .service-side-wrap {
-    background-color: antiquewhite;
     border: 1px solid;
+    border-radius: 5px;
 }
 
+.video-side-wrap {
+    border: 1px solid;
+    background-color: #343541;
+    border-radius: 5px;
+    position: relative;
+}
+
+.serve-text {
+    background-color: #eeeff1;
+    border-bottom: 1px solid #e1e1e2;
+    padding: 10px;
+}
+
+.message-bar {
+    background-color: rgb(31, 31, 133);
+    border-bottom: 1px solid;
+    font-size: large;
+    color: white;
+    padding: 5px;
+    overflow: hidden;
+    bottom: 0;
+}
+
+@keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .moving-text {
+    white-space: nowrap;
+    animation: marquee 10s linear infinite;
+  }
+  
+
 .window {
-border: 1px solid black;
-min-height: 33vh;
+    min-height: 28.5vh;
+    border: 5px solid #eeeff1;
 }

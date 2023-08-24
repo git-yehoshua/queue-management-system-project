@@ -4,10 +4,16 @@
 .sub-wrapper {
   margin: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: fit-content;
+  grid-template-columns: 80vh 1fr;
+  min-height: 90vh;
 }
 
+.control-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
 
 .preview-side {
   /* border: 1px solid;
@@ -20,7 +26,7 @@
     display: block;
     border: 1px solid;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    max-width: 470px;
+    width: 465px;
     border-radius: 5px;
     margin: 0 auto;
     margin-bottom: 10px;

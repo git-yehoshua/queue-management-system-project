@@ -11,7 +11,7 @@ import Live from './modules/live';
 function App() {
   return (
     <div className="App">
-      <Router>
+      {/* <Router>
         <div className='App-wrap'>
         </div>
        
@@ -24,9 +24,9 @@ function App() {
             <Route path='/admin' element={<Admin/>} />
           </Routes>
         </Sidebar>
-      </Router>
+      </Router> */}
 
-      {/* <Live/> */}
+      <Live/>
     </div>
   );
 }

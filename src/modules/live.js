@@ -1,13 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles/live.css'
+import socketIOClient from 'socket.io-client';
 
 function Live() {
+  const [servingNumber, setServingNumber] = useState('');
+  const [window1Number, setWindow1Number] = useState('');
+  const socket = socketIOClient('http://localhost:5000');
+
+  useEffect(() => {
+    socket.on('update',(newServingNumber) => {
+      setServingNumber(newServingNumber);
+    });
+
+    socket.on('newServingNumber', (updatedServingNumber) => {
+      // Update the serving number for window 1
+      setWindow1Number(updatedServingNumber);
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  },[]);
+
   return (
     <div className='live-main-wrap'>
         <div className='service-side-wrap'>
-            <h1>Service Side</h1>
+            <div className='serve-text'>
+              <h1>Now Serving</h1>
+            </div>
             <div className='window'>
               Window 1
+              <h1>
+                {window1Number}
+              </h1>
             </div>
             <div className='window'>
               Window 2
@@ -17,7 +42,9 @@ function Live() {
             </div>
         </div>
         <div className='video-side-wrap'>
-            video here
+            <div className='message-bar'>
+              <h1 className='moving-text'>ANNOUNCEMENT HERE</h1>
+            </div>
         </div>
     </div>
   )
