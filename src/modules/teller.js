@@ -1,10 +1,11 @@
 import socketIOClient from 'socket.io-client';
 import React, { useState, useEffect } from 'react';
 import './styles/teller.css';
-import DropdownMenu from './hooks/DropdownMenu';
+import DropdownMenu from './components/DropdownMenu';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faCircleArrowRight,
          faBullhorn } from '@fortawesome/free-solid-svg-icons';
+
 
 const synth = window.speechSynthesis;
 
@@ -44,6 +45,12 @@ function Teller() {
     if(rootElement.requestFullscreen) {
       rootElement.requestFullscreen();
     }
+    const liveWindow = window.open('http://localhost:3000/live', '_blank');
+  if (liveWindow) {
+    liveWindow.addEventListener('load', () => {
+      liveWindow.document.documentElement.requestFullscreen();
+    });
+  }
   };
 
   const speak = (text) => {

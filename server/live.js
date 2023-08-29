@@ -9,10 +9,10 @@ const io = socketIO(server);
 
 const LIVE_PORT = 4001; // Port for serving the Live page
 
-app.use(express.static(path.join(__dirname, 'live-build'))); // Assuming 'live-build' contains the built Live page
+app.use(express.static(path.join(__dirname, 'src'))); 
 
 app.get('/live', (req, res) => {
-  res.sendFile(path.join(__dirname, 'live-build', 'index.html'));
+  res.sendFile(path.join(__dirname, '../src/modules/live.js'));
 });
 
 const SOCKET_PORT = 5000; // Port for socket communication

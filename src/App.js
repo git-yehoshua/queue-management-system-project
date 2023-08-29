@@ -7,14 +7,17 @@ import Teller from './modules/teller';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Admin from './modules/admin';
 import Live from './modules/live';
+import Ticket from './modules/ticket';
 
 function App() {
   return (
     <div className="App">
-      {/* <Router>
+      <Router>
         <div className='App-wrap'>
+          <Routes>
+            <Route path='/live' element={<Live/>}/>
+          </Routes>
         </div>
-       
         <Sidebar>
           <Routes>
             <Route path='/' element={<h1>Welcome to Dashboard</h1>} />
@@ -22,11 +25,10 @@ function App() {
             <Route path='/register' element={<Register />} />
             <Route path='/teller' element={<Teller />} />
             <Route path='/admin' element={<Admin/>} />
+            <Route path='/ticket' element={<Ticket/>} />
           </Routes>
         </Sidebar>
-      </Router> */}
-
-      <Live/>
+      </Router>
     </div>
   );
 }

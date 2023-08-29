@@ -1,26 +1,39 @@
 import React, { useEffect, useState } from 'react'
 import './styles/live.css'
-import socketIOClient from 'socket.io-client';
+// import socketIOClient from 'socket.io-client';
 
 function Live() {
-  const [servingNumber, setServingNumber] = useState('');
-  const [window1Number, setWindow1Number] = useState('');
-  const socket = socketIOClient('http://localhost:5000');
+  // const [servingNumber, setServingNumber] = useState('');
+  // const [window1Number, setWindow1Number] = useState('');
+  // const socket = socketIOClient('http://localhost:4001');
 
-  useEffect(() => {
-    socket.on('update',(newServingNumber) => {
-      setServingNumber(newServingNumber);
-    });
+  // useEffect(() => {
+  //   const rootElement = document.documentElement;
+  //   if (rootElement.requestFullscreen) {
+  //     rootElement.requestFullscreen();
+  //   }
+  
+  //   return () => {
+  //     if (document.exitFullscreen) {
+  //       document.exitFullscreen();
+  //     }
+  //   };
+  // }, []);
 
-    socket.on('newServingNumber', (updatedServingNumber) => {
-      // Update the serving number for window 1
-      setWindow1Number(updatedServingNumber);
-    });
+  // useEffect(() => {
+  //   socket.on('update',(newServingNumber) => {
+  //     setServingNumber(newServingNumber);
+  //   });
 
-    return () => {
-      socket.disconnect();
-    };
-  },[]);
+  //   socket.on('newServingNumber', (updatedServingNumber) => {
+  //     // Update the serving number for window 1
+  //     setWindow1Number(updatedServingNumber);
+  //   });
+
+  //   return () => {
+  //     socket.disconnect();
+  //   };
+  // },[]);
 
   return (
     <div className='live-main-wrap'>
@@ -31,7 +44,7 @@ function Live() {
             <div className='window'>
               Window 1
               <h1>
-                {window1Number}
+                {/* {window1Number} */}
               </h1>
             </div>
             <div className='window'>

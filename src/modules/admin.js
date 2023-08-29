@@ -1,5 +1,5 @@
 import React from 'react'
-import VideoUpload from './hooks/VideoUpload'
+import VideoUpload from './components/VideoUpload'
 
 function Admin() {
   return (
